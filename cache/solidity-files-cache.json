@@ -1,0 +1,39 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/felipe/Documents/Ethereum/Scripts/hrdhat-tutorial/contracts/token.sol": {
+      "lastModificationDate": 1621475289001,
+      "contentHash": "bb8d3a15d00d2e5e03f97d4286c1f7bf",
+      "sourceName": "contracts/token.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.0"
+      ],
+      "artifacts": [
+        "Token"
+      ]
+    }
+  }
+}
