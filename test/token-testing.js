@@ -19,7 +19,7 @@ describe("Deploy", function() {
 });
 
 
-describe("Token", function() {
+describe("Token Supply", function() {
   it("Should return the total token supply", async function() {
 
     const Token = await ethers.getContractFactory("Token");
@@ -30,5 +30,28 @@ describe("Token", function() {
     console.log("LOGs are shown");
     
     expect(await token.totalSupply()).to.equal(1000000);
+  });
+});
+
+
+describe("Transfer", function() {
+  it("Should transfer tokens", async function() {
+
+    
+    const amount = 1000;
+    const accounts = await ethers.getSigners();
+    const sender   = accounts[0];
+    const receiver = accounts[1];
+
+    const Token = await ethers.getContractFactory("Token");
+    const token = await Token.deploy();
+    await token.deployed();
+
+    const senderInitialAmount = await token.balanceOf(sender.address);
+    await token.transfer(receiver.address, amount);
+
+    expect(await token.balanceOf(receiver.address)).to.equal(amount);
+    expect(await token.balanceOf(sender.address)).to.equal(senderInitialAmount.sub(amount));
+
   });
 });
